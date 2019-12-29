@@ -1,0 +1,12 @@
+---
+   - name: update apt
+     apt:
+      update_cache: yes
+   - name: install supervisor
+     apt:
+      name: supervisor
+      state: present
+   - name: tart supervisor service
+     service:
+       name: supervisor
+       state: started
