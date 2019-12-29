@@ -1,0 +1,16 @@
+---
+#- name: Install apache to the machine  
+- hosts: webservers
+  become: true
+  tasks:
+   - name: update apt
+     apt:
+      update_cache: yes
+   - name: Install apache
+     apt:
+      name: apache2
+      state: present
+   - name: Start HTTP service
+     service:
+       name: apache2
+       state: started
